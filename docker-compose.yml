@@ -1,0 +1,34 @@
+version: '3.9'
+
+services:
+  vuln1:
+    build: ./vuln1
+    container_name: vuln1-security-definer
+    ports:
+      - "5433:5432"
+
+  vuln2:
+    build: ./vuln2
+    container_name: vuln2-copy-to-program
+    ports:
+      - "5434:5432"
+
+  postgres-sqli:
+    image: postgres:15
+    container_name: postgres-sqli-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: blindsqli
+    volumes:
+      - ./vuln3/init:/docker-entrypoint-initdb.d
+    ports:
+      - "5435:5432"
+
+  web-sqli:
+    build: ./vuln3
+    container_name: blind-sqli-web
+    depends_on:
+      - postgres-sqli
+    ports:
+      - "5000:5000"
