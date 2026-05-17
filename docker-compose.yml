@@ -25,7 +25,7 @@ services:
     ports:
       - "5435:5432"
 
-  web-sqli:
+  vuln3:
     build: ./vuln3
     container_name: blind-sqli-web
     depends_on:
