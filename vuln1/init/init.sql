@@ -39,7 +39,6 @@ BEGIN
 END;
 $$;
 
-GRANT EXECUTE ON FUNCTION public.multiply(INTEGER, INTEGER) TO norm_user; 
 
 
 CREATE OPERATOR public.* (
@@ -47,3 +46,5 @@ CREATE OPERATOR public.* (
    LEFTARG = integer,
    RIGHTARG = integer
 ); 
+
+GRANT EXECUTE ON FUNCTION public.multiply(INTEGER, INTEGER) TO norm_user; 
