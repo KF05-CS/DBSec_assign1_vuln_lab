@@ -1,1 +1,1 @@
-FLAG{vuln2_copy_to_program_success}
+FLAG{vuln2_postgres_copy_to_program_cve}
