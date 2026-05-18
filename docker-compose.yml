@@ -12,6 +12,10 @@ services:
     container_name: vuln2-copy-to-program
     ports:
       - "5434:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
 
   postgres-sqli:
     image: postgres:15
