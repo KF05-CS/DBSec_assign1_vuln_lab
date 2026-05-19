@@ -1,0 +1,1 @@
+FLAG{vuln2_postgres_copy_to_program_cve}
